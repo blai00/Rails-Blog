@@ -1,0 +1,19 @@
+<h1>Welcome <%= @user.name %></h1>
+<%= link_to "Edit User" , edit_user_url %>
+<%= link_to "Delete User",@user, :method => :delete %>
+
+<form action ='/blogs' method='post'>
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    Title:<input type='text' name = 'blog[title]'>
+    Content:<input type = 'text' name ='blog[content]'>
+    <input type ='hidden' name= 'blog[user_id]' value = '<%= @user.id %>'>
+    <input type='submit' value ='Create Blog'>
+</form>
+
+<% @user.blogs.each do |blog| %>
+    <h3><%= blog.title %></h3>
+    <p><%= blog.content %></p>
+    <%= link_to 'Edit', edit_blog_url(blog.id) %>
+    <%= link_to 'Delete', blog, :method => :delete %>
+<% end %>
+
