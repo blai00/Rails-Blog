@@ -22,6 +22,7 @@ class BlogsController < ApplicationController
   
   def update
     @blog.update(blog_params)
+    puts @blog.content
     redirect_to current_user
   
   end
