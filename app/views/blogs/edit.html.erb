@@ -1,10 +1,9 @@
 <h2>Edit Blog</h2>
-<%= @blog.to_json %>
 <form action= "/blogs/<%= @blog.id %>" method='post'>
     <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
     <input type ='hidden' name="_method" value='patch'>
-    Title:<input type='text' value= '<%= @blog.title %>' name='blog[:title]'> 
-    Content:<input type='text' value= '<%= @blog.content %>' name='blog[:content]'>
+    Title:<input type='text' value= '<%= @blog.title %>' name='blog[title]'> 
+    Content:<input type='text' value= '<%= @blog.content %>' name='blog[content]'>
     <input type='submit' value='Update'>
 </form>
 

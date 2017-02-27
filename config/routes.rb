@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
 
-  root 'users#new'
+  root 'sessions#new'
   
   resources :users
   

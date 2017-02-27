@@ -1,6 +1,8 @@
 <h1>Welcome <%= @user.name %></h1>
+<%= link_to "All Blogs", blogs_url %>
 <%= link_to "Edit User" , edit_user_url %>
 <%= link_to "Delete User",@user, :method => :delete %>
+
 
 <form action ='/blogs' method='post'>
     <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">

@@ -9,7 +9,6 @@ class BlogsController < ApplicationController
     
     blog = Blog.create(blog_params)
     if blog.save
-      puts blog.inspect
       redirect_to user
     else
       flash[:message] = 'Invalid'
@@ -22,13 +21,7 @@ class BlogsController < ApplicationController
   end
   
   def update
-    puts '/'*80
-    puts blog_params
-    puts '/'*80
-    blog = Blog.find(12)
-    blog.update(blog_params)
-    puts 'blogs_controller.update:', blog
-   
+    @blog.update(blog_params)
     redirect_to current_user
   
   end
@@ -43,12 +36,11 @@ class BlogsController < ApplicationController
   private
   
   def blog_params
-    params[:blog].permit(:title, :content, :user_id)
+    params.require(:blog).permit(:title, :content, :user_id)
   end 
   
   def set_blog
-    puts @blog.inspect
-    @blog = Blog.find(params[:id])
-    puts @blog.inspect
+   @blog = Blog.find(params[:id])
+  
   end
 end

@@ -23,6 +23,8 @@ class UsersController < ApplicationController
   
   def update
     @user.update(user_params)
+    puts user_params
+    puts '/'*80
     redirect_to @user
   end 
 
